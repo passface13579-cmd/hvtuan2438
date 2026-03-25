@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ECCCipher</class>
+ <widget class="QMainWindow" name="ECCCipher">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>527</width>
+    <height>399</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ECC Cipher</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow {
+    background-color: #f4f7fb;
+}
+
+QWidget {
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;;
+    font-size: 10pt;
+    color: #2c3e50;
+}
+
+QFrame#mainFrame {
+    background-color: white;
+    border: 1px solid #dfe6ee;
+    border-radius: 16px;
+}
+
+QLabel#label_title {
+    color: #1f2d3d;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+QLabel#label_information,
+QLabel#label_signature {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #34495e;
+}
+
+QPlainTextEdit {
+    background-color: #f9fbfd;
+    border: 1px solid #cfd8e3;
+    border-radius: 10px;
+    padding: 8px;
+    selection-background-color: #4a90e2;
+}
+
+QPlainTextEdit:focus {
+    border: 1px solid #4a90e2;
+    background-color: #ffffff;
+}
+
+QPushButton {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+    color: white;
+    background-color: #4a90e2;
+}
+
+QPushButton:hover {
+    background-color: #357abd;
+}
+
+QPushButton:pressed {
+    background-color: #2d6399;
+}
+
+QPushButton#btn_generate_keys {
+    background-color: #27ae60;
+}
+
+QPushButton#btn_generate_keys:hover {
+    background-color: #219150;
+}
+
+QPushButton#btn_generate_keys:pressed {
+    background-color: #1b7a43;
+}
+
+QPushButton#btn_verify {
+    background-color: #8e44ad;
+}
+
+QPushButton#btn_verify:hover {
+    background-color: #7a3796;
+}
+
+QPushButton#btn_verify:pressed {
+    background-color: #652d7a;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="mainFrame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>480</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_title">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>220</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ECC CIPHER</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_generate_keys">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>20</y>
+       <width>151</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Generate Keys</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_information">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>100</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Information</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_information">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>420</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Enter information to sign...</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_signature">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>100</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Signature</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_signature">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>220</y>
+       <width>420</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Signature result will appear here...</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_sign">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>300</y>
+       <width>90</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sign</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_verify">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>300</y>
+       <width>90</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Verify</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
