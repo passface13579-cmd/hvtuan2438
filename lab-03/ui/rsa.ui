@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RSA_Cipher</class>
+ <widget class="QMainWindow" name="RSA_Cipher">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RSA Cipher</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #0f172a;
+}
+
+QWidget#centralwidget {
+    background-color: #0f172a;
+}
+
+QLabel {
+    color: #e2e8f0;
+    font: 10pt &quot;Segoe UI&quot;;
+}
+
+QLabel#label_title {
+    color: #f8fafc;
+    background-color: #1e293b;
+    border: 2px solid #38bdf8;
+    border-radius: 14px;
+    padding: 10px;
+    font: 700 20pt &quot;Segoe UI&quot;;
+}
+
+QPlainTextEdit {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 8px;
+    font: 10pt &quot;Consolas&quot;;
+    selection-background-color: #38bdf8;
+}
+
+QPlainTextEdit:focus {
+    border: 2px solid #38bdf8;
+    background-color: #ffffff;
+}
+
+QPushButton {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font: 700 10pt &quot;Segoe UI&quot;;
+    padding: 8px 14px;
+}
+
+QPushButton:hover {
+    background-color: #3b82f6;
+}
+
+QPushButton:pressed {
+    background-color: #1d4ed8;
+}
+
+QPushButton#btn_generate_keys {
+    background-color: #7c3aed;
+}
+
+QPushButton#btn_generate_keys:hover {
+    background-color: #8b5cf6;
+}
+
+QPushButton#btn_sign {
+    background-color: #059669;
+}
+
+QPushButton#btn_sign:hover {
+    background-color: #10b981;
+}
+
+QPushButton#btn_verify {
+    background-color: #ea580c;
+}
+
+QPushButton#btn_verify:hover {
+    background-color: #f97316;
+}
+
+QStatusBar {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_left">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>390</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#frame_left {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 18px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_plain_text">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>20</y>
+       <width>120</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Plain Text</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_plain_text">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>55</y>
+       <width>340</width>
+       <height>100</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_cipher_text">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>175</y>
+       <width>120</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cipher Text</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_cipher_text">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>210</y>
+       <width>340</width>
+       <height>100</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_encrypt">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>325</y>
+       <width>110</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Encrypt</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_decrypt">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>325</y>
+       <width>110</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Decrypt</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_right">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>80</y>
+      <width>390</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#frame_right {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 18px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_information">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>20</y>
+       <width>120</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Information</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_information">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>55</y>
+       <width>340</width>
+       <height>100</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_signature">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>175</y>
+       <width>120</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Signature</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="txt_signature">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>210</y>
+       <width>340</width>
+       <height>100</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_sign">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>325</y>
+       <width>110</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sign</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_verify">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>325</y>
+       <width>110</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Verify</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_title">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>20</y>
+      <width>340</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RSA CIPHER</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_generate_keys">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>25</y>
+      <width>161</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generate Keys</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
